@@ -1,5 +1,34 @@
+#TextoSenha{
+    font-size: 26px;
+    font-family: 'Kanit', sans-serif;
+    width: fit-content;
+    margin: auto;
+    margin-top: inherit;
+}
 
+#InputSenha{
+    width: 458px;
+    margin-left: 720px;
+    height: 20px;
+    border-radius: 6px;
+    margin-top: inherit;
+}
 
+#RevelacaoSenha{
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    margin:auto;
+    width: fit-content;
+    margin-top: inherit;
+}
+
+#BotaoSenha{
+    border-radius: 6px;
+    height: 25px;
+    font-family: 'Kanit'
+}
+
+/* CSS Página Jogadores */
 #TituloTopo{
     font-size: 40px;
     color: white;

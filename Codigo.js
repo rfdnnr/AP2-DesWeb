@@ -32,6 +32,13 @@ const CriaCartao = (Entrada) => {
     ContainerAtleta.appendChild(Descricao)
 
     DivContainer.appendChild(ContainerAtleta)
+
+    ContainerAtleta.addEventListener("click", function(){
+        var IdClicado = Entrada.id
+        console.log("ID do jogador clicado:", IdClicado);
+        localStorage.setItem('IdClicado', IdClicado);
+        window.location.href = "./PaginaDetalhes.html"
+    })
 }
 
 
@@ -44,7 +51,7 @@ BotaoFeminino.addEventListener("click", function() {
     let indice = 0
     while (indice < 26){
         CriaCartao(Jogadores[indice]);
-        console.log(indice)
+        
         indice++;}
 })
 
@@ -53,7 +60,7 @@ BotaoMasculino.addEventListener("click", function() {
     let indice = 26
     while (indice < 60){
         CriaCartao(Jogadores[indice]);
-        console.log(indice)
+        
         indice++;
     }
 })
@@ -62,3 +69,5 @@ BotaoCompleto.addEventListener("click", function(){
     DivContainer.innerHTML = ""
     Jogadores.forEach((Jogador) => {CriaCartao(Jogador)})
 })
+
+
