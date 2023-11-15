@@ -2,8 +2,8 @@ const Body = document.body;
 const DivContainer = document.createElement('div');
 DivContainer.id = 'Container';
 Body.appendChild(DivContainer);
-DivContainer.style.width = '50%'
-DivContainer.style.margin = 'auto'
+
+
 
 const CriaCartao = (Entrada) => {
     const ContainerAtleta = document.createElement ('div');
@@ -15,6 +15,11 @@ const CriaCartao = (Entrada) => {
     ContainerAtleta.style.color = 'white'
     ContainerAtleta.style.fontFamily = 'Kanit'
     ContainerAtleta.style.borderRadius = '6px'
+    ContainerAtleta.style.width = 'minContent'
+    ContainerAtleta.style.padding = '9px'
+    ContainerAtleta.style.marginBottom = '9px'
+
+    ContainerAtleta.id = 'ContainerAtleta'
     
     const Titulo = document.createElement('h3');
     Titulo.innerHTML = Entrada.nome;
@@ -27,9 +32,25 @@ const CriaCartao = (Entrada) => {
     const Descricao = document.createElement('p');
     Descricao.innerHTML = Entrada.descricao;
 
+    const BotaoDetalhes = document.createElement('button')
+    BotaoDetalhes.innerHTML = 'Detalhes'
+    BotaoDetalhes.style.marginBlock = '10px'
+    BotaoDetalhes.style.backgroundColor = 'white'
+    BotaoDetalhes.style.color = 'black'
+    BotaoDetalhes.style.fontSize = '18px'
+    BotaoDetalhes.style.fontFamily = 'Kanit'
+    BotaoDetalhes.style.border = 'none'
+    BotaoDetalhes.style.borderRadius = '6px'
+    BotaoDetalhes.style.height = '30px'
+    BotaoDetalhes.style.width = '160px'
+
+    const Br = document.createElement('br')
+
     ContainerAtleta.appendChild(Titulo)
     ContainerAtleta.appendChild(Imagem)
-    ContainerAtleta.appendChild(Descricao)
+    //ContainerAtleta.appendChild(Descricao)
+    ContainerAtleta.appendChild(Br)
+    ContainerAtleta.appendChild(BotaoDetalhes)
 
     DivContainer.appendChild(ContainerAtleta)
 

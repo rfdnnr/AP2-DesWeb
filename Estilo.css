@@ -1,3 +1,31 @@
+
+#BotaoVoltar{
+    color: white;
+}
+
+
+@media (max-width: 768px){
+    #Topo{
+        align-items: center;
+    justify-content: center;
+    }
+    #TextoSenha{
+        font-size: 18px !important;
+    }
+    #InputSenha{
+        width: 300px !important;
+    }
+    #RevelacaoSenha{
+        font-size: 12px !important;
+    }
+}
+
+
+#FormSenha{
+    width: fit-content;
+    margin: auto;
+}
+
 #TextoSenha{
     font-size: 26px;
     font-family: 'Kanit', sans-serif;
@@ -7,8 +35,8 @@
 }
 
 #InputSenha{
-    width: 458px;
-    margin-left: 720px;
+    width: 420px;
+    
     height: 20px;
     border-radius: 6px;
     margin-top: inherit;
@@ -29,6 +57,43 @@
 }
 
 /* CSS Página Jogadores */
+
+#Container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px; /* Espaçamento entre as divs */
+    max-width: 1200px; /* Largura máxima da lista */
+    margin: auto; /* Centraliza a lista na tela */
+}
+
+/* Uma coluna até 768px */
+@media (max-width: 768px) {
+    #Container {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Uma coluna */
+    }
+    #Botoes {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Duas colunas até 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #Container {
+        grid-template-columns: repeat(auto-fill, minmax(48%, 1fr)); /* Duas colunas */
+    }
+}
+
+/* Quatro colunas depois de 1024px */
+@media (min-width: 1025px) {
+    #Container {
+        grid-template-columns: repeat(auto-fill, minmax(23%, 1fr)); /* Quatro colunas */
+    }
+}
+
+
+
+
 #TituloTopo{
     font-size: 40px;
     color: white;
@@ -48,12 +113,13 @@
     height: 12%;
     background-color: black;
     display: inline-flex;
+    align-items: center;
 }
 
 #Botoes{
     margin: auto;
     width: fit-content;
-    display: block;
+    display: grid;
     margin-top: inherit;
     
 }
