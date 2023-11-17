@@ -7,7 +7,7 @@ BotaoVoltar.addEventListener("click", function(){
 
 
 
-
+let Select = document.getElementById('Select');
 const VerificacaoFalha = () => {
     const Botoes = document.getElementById('Botoes')
     const MensagemAutorizacao = document.getElementById('MensagemAutorizacao')
@@ -17,6 +17,7 @@ const VerificacaoFalha = () => {
     MensagemAutorizacao.style.width = 'fit-content'
     MensagemAutorizacao.style.margin = 'auto'
     Botoes.innerHTML = ' '
+    Select.innerHTML = ' '
     }
 
 
@@ -40,7 +41,7 @@ Body.appendChild(DivContainer);
 let BotaoFeminino = document.getElementById('BotaoFeminino')
 let BotaoMasculino = document.getElementById('BotaoMasculino')
 let BotaoCompleto = document.getElementById('BotaoCompleto')
-let Select = document.getElementById('Select');
+
 
 
 const AcessandoAPI = (Escolha) => {
