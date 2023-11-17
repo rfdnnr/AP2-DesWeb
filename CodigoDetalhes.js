@@ -1,80 +1,94 @@
-var IdClicado = localStorage.getItem('IdClicado');
+const Validacao = localStorage.getItem('Autorizacao')
 
 const Body = document.body;
 Body.style.background = 'black'
-const DivContainer = document.createElement('div');
-DivContainer.id = 'Container';
-//Body.appendChild(DivContainer);
-DivContainer.style.width = '50%'
-DivContainer.style.margin = 'auto'
 
-const CriaCartao = (Entrada) => {
-    const ContainerAtleta = document.createElement ('div');
-    
-    ContainerAtleta.style.width = '20 rem';
-    ContainerAtleta.style.backgroundColor = '#020202';
-    ContainerAtleta.style.textAlign = 'left';
-    ContainerAtleta.style.margin = '25px';
-    ContainerAtleta.style.color = 'white'
-    ContainerAtleta.style.fontFamily = 'Kanit'
-    ContainerAtleta.style.borderRadius = '6px'
-    ContainerAtleta.style.display = 'flex'
-    
-    //ContainerAtleta.style.alignItems = 'center'
-    
-     
-    const Br = document.createElement('br')
+const BotaoVoltar = document.getElementById('BotaoVoltar')
+BotaoVoltar.addEventListener("click", function(){
+    window.location.href = "./PaginaJogadores.html"
+})
 
-    const Titulo = document.createElement('h3');
-    Titulo.innerHTML = Entrada.nome;
-    
-    const Imagem = document.createElement('img');
-    Imagem.src = Entrada.imagem;
-    Imagem.alt = 'Foto de '+ Entrada.nome
-    Imagem.style.borderRadius = '6px'
+if (Validacao == 'Autorizado'){
 
-    const Posicao = document.createElement('h3');
-    Posicao.innerHTML = Entrada.posicao;
+const params = new URLSearchParams(window.location.search);
+const IdURL = params.get('id');
+console.log(IdURL)
 
-    const DivImagemNomePosicao = document.createElement('div');
-    DivImagemNomePosicao.appendChild(Imagem)
-    DivImagemNomePosicao.appendChild(Titulo)
-    DivImagemNomePosicao.appendChild(Posicao)
-    DivImagemNomePosicao.style.width = 'fit-content'
-    DivImagemNomePosicao.style.textAlign = 'center'
-    DivImagemNomePosicao.style.fontSize = '23px'
 
-    const Descricao = document.createElement('p');
-    Descricao.innerHTML = Entrada.descricao;
 
-    const NomeCompleto = document.createElement('p')
-    NomeCompleto.innerHTML = 'Nome completo: ' + Entrada.nome_completo
 
-    const Nascimento = document.createElement('p')
-    Nascimento.innerHTML = 'Nascimento: ' + Entrada.nascimento
 
-    const Altura = document.createElement('p')
-    Altura.innerHTML = 'Altura: ' + Entrada.altura
 
-    const DivDescricaoDados = document.createElement('div')
-    DivDescricaoDados.appendChild(Descricao)
-    DivDescricaoDados.appendChild(NomeCompleto)
-    DivDescricaoDados.appendChild(Nascimento)
-    DivDescricaoDados.appendChild(Altura)
-    DivDescricaoDados.style.fontSize = '22px'
-    DivDescricaoDados.style.margin = 'inherit'
 
-    ContainerAtleta.appendChild(DivImagemNomePosicao)
-    
-    ContainerAtleta.appendChild(DivDescricaoDados)
-  
-    
-    
-    Body.appendChild(ContainerAtleta)
+const DetalhesJogador = document.getElementById('DetalhesJogador')
+const DivImagemNomePosicao = document.getElementById('DivImagemNomePosicao')
+const ImagemDetalhes = document.getElementById('ImagemDetalhes')
+const NomeDetalhes = document.getElementById('NomeDetalhes')
+const PosicaoDetalhes = document.getElementById('PosicaoDetalhes')
+const DivDescricaoNomeCompletoNascimentoAltura = document.getElementById('DivDescricaoNomeCompletoNascimentoAltura')
+const DescricaoDetalhes = document.getElementById('DescricaoDetalhes')
+const NomeCompletoDetalhes = document.getElementById('NomeCompletoDetalhes')
+const NascimentoDetalhes = document.getElementById('NascimentoDetalhes')
+const AlturaDetalhes = document.getElementById('AlturaDetalhes')
 
-    
+DetalhesJogador.style.color = 'white'
+DetalhesJogador.style.fontFamily = 'Kanit'
+DetalhesJogador.style.fontSize = '18px'
+DetalhesJogador.style.margin = 'inherit'
+
+
+
+
+
+const CriaDetalhes = (id) => {
+    fetch('https://botafogo-atletas.mange.li/' + id)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Não foi possível obter os dados.");
+            }
+            return response.json();
+        })
+        .then(Jogadores => {
+            ImagemDetalhes.src = Jogadores.imagem;
+            NomeDetalhes.innerHTML = 'Nome: ' + Jogadores.nome;
+            PosicaoDetalhes.innerHTML = 'Posição: ' + Jogadores.posicao;
+            DescricaoDetalhes.innerHTML = 'Descrição: ' + Jogadores.descricao;
+            NomeCompletoDetalhes.innerHTML = 'Nome Completo: ' + Jogadores.nome_completo;
+            NascimentoDetalhes.innerHTML = 'Nascimento: ' + Jogadores.nascimento;
+            AlturaDetalhes.innerHTML = 'Altura: ' + Jogadores.altura;
+            
+            ImagemDetalhes.style.borderRadius = '6px'
+            DivDescricaoNomeCompletoNascimentoAltura.style.margin = 'inherit'
+            DivImagemNomePosicao.style.textAlign = 'center'
+
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 
+if (IdURL > 60 || IdURL < 1) {
+    const MensagemErro = document.getElementById('MensagemErro')
+    MensagemErro.style.fontFamily = 'Kanit'
+    MensagemErro.style.fontSize = '24px'
+    MensagemErro.style.width = 'fit-content'
+    MensagemErro.style.margin = 'auto'
+    MensagemErro.style.color = 'white'
+    MensagemErro.innerHTML = 'Não foi possível obter os dados!'
 
-CriaCartao(Jogadores[IdClicado-1])
+} else {
+CriaDetalhes(IdURL);
+}
+
+
+} else {
+    const MensagemAutorizacao = document.getElementById('MensagemAutorizacao')
+    MensagemAutorizacao.innerHTML = 'Você não tem autorização para acessar essa página.'
+    MensagemAutorizacao.style.fontFamily = 'Kanit'
+    MensagemAutorizacao.style.fontSize = '28px'
+    MensagemAutorizacao.style.width = 'fit-content'
+    MensagemAutorizacao.style.margin = 'auto'
+    MensagemAutorizacao.style.color = 'white'
+}

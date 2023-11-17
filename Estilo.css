@@ -1,7 +1,29 @@
 
-#BotaoVoltar{
-    color: white;
+/*Página Detalhes*/
+#DetalhesJogador{
+    display: flex;
 }
+#BotaoVoltar{
+        margin:inherit;
+        background-color: white;
+        color: black;
+        font-size: 24px;
+        font-family: 'Kanit';
+        padding: 10px 32px;
+        border-width: 1px;
+        border-radius: 6px;
+    }
+
+    #BotaoVoltar0{
+        margin: auto;
+        background-color: white;
+        color: black;
+        font-size: 24px;
+        font-family: 'Kanit';
+        padding: 10px 32px;
+        border-width: 1.3px;
+        border-radius: 6px;
+    }
 
 
 @media (max-width: 768px){
@@ -18,8 +40,19 @@
     #RevelacaoSenha{
         font-size: 12px !important;
     }
+    #DetalhesJogador{
+        flex-direction: column;
+    }
+    
 }
 
+/* Login*/
+#FotoBotafogo0{
+    width: 10%;
+    height: 100%;
+    object-fit: cover;
+    margin-left: 10px;
+  }
 
 #FormSenha{
     width: fit-content;
@@ -107,6 +140,7 @@
   width: 10%;
   height: 100%;
   object-fit: cover;
+  margin: auto;
 }
 
 #Topo{
@@ -131,7 +165,7 @@
     font-size: 24px;
     font-family: 'Kanit', sans-serif;
     padding: 10px 32px;
-    border: none;
+    border-width: 1px;
     border-radius: 6px;
 }
 
@@ -142,7 +176,7 @@
     font-size: 24px;
     font-family: 'Kanit', sans-serif;
     padding: 10px 32px;
-    border: none;
+    border-width: 1px;
     border-radius: 6px;
 }
 
@@ -153,6 +187,6 @@
     font-size: 24px;
     font-family: 'Kanit', sans-serif;
     padding: 10px 32px;
-    border: none;
+    border-width: 1px;
     border-radius: 6px;
 }
