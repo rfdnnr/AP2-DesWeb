@@ -17,7 +17,7 @@ const VerificacaoFalha = () => {
     MensagemAutorizacao.style.width = 'fit-content'
     MensagemAutorizacao.style.margin = 'auto'
     Botoes.innerHTML = ' '
-    Select.style.display = 'none'
+    Select.innerHTML = ' '
     }
 
 
