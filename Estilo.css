@@ -27,9 +27,19 @@
 
 
 @media (max-width: 768px){
+    #BotaoVoltar0{
+        font-size: 14px !important;
+        padding: 5px 16px !important;
+    }
+    
     #Topo{
         align-items: center;
     justify-content: center;
+    }
+    #TituloTopo{
+        font-size: 22px !important;
+        margin-top: inherit !important;
+        
     }
     #TextoSenha{
         font-size: 18px !important;
@@ -43,7 +53,12 @@
     #DetalhesJogador{
         flex-direction: column;
     }
-    
+    #Botoes{
+        display: none !important;
+    }
+    #Select{
+        display: block !important;
+    }
 }
 
 /* Login*/
@@ -124,7 +139,17 @@
     }
 }
 
-
+#Select{
+    display: none;
+    font-family: 'Kanit';
+    font-size: 24px;
+    margin: auto;
+    text-align: center;
+    margin-top: inherit;
+    border-radius: 6px;
+    border: solid;
+    border-top-width: thick;
+}
 
 
 #TituloTopo{

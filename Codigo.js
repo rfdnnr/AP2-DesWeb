@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
+
 const BotaoVoltar = document.getElementById('BotaoVoltar0')
 BotaoVoltar.addEventListener("click", function(){
     window.location.href = "./index.html"
@@ -38,8 +40,7 @@ Body.appendChild(DivContainer);
 let BotaoFeminino = document.getElementById('BotaoFeminino')
 let BotaoMasculino = document.getElementById('BotaoMasculino')
 let BotaoCompleto = document.getElementById('BotaoCompleto')
-
-
+let Select = document.getElementById('Select');
 
 
 const AcessandoAPI = (Escolha) => {
@@ -76,7 +77,10 @@ BotaoCompleto.addEventListener("click", function(){
     AcessandoAPI("all")
 })
 
-
+Select.addEventListener("change", function() {
+    DivContainer.innerHTML = "";
+    AcessandoAPI(Select.value);
+});
 
 
 const CriaCartao = (Escolha) => {
@@ -147,3 +151,4 @@ const CriaCartao = (Escolha) => {
     VerificacaoFalha()
     
 }
+})
